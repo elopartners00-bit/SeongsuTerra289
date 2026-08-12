@@ -228,6 +228,75 @@ H2:         Pretendard 700 / -0.02em / 1.25
 
 ---
 
+## 6-1. DB 수집 연동 (Google Apps Script 웹앱)
+
+### 설정 절차
+1. Apps Script 편집기 → **배포 → 새 배포 → 유형: 웹 앱**
+   - 실행 계정: **나**
+   - 액세스 권한: **모든 사용자** ← 이게 '나만'이면 외부 전송이 전부 차단된다
+2. 배포 후 나오는 `https://script.google.com/macros/s/AKfyc.../exec` 주소 복사
+3. `index.html` 안의 `var ENDPOINT = '...'` 한 줄에 붙여넣기 (스크립트 상단 주석 블록 참고)
+4. 브라우저에서 `/exec` 주소를 직접 열어 `문의 수집기 정상 작동 중`이 뜨면 배포 정상
+
+> ⚠️ Apps Script 코드를 고칠 때마다 **[배포 관리]에서 새 버전으로 재배포**해야 반영된다.
+> 새 배포를 만들면 URL이 바뀌므로, 기존 배포를 '수정'해 버전만 올리는 쪽이 안전하다.
+
+### 시트 컬럼 매핑
+| 시트 컬럼 | 전송 키 | 값 |
+|---|---|---|
+| 성함 | `name` | 입력값 |
+| 연락처 | `phone` | `010-0000-0000` 포맷 |
+| 현장 · 지역 | `site` | `성수테라289` (고정) |
+| 문의내용 | `message` | `[상담 신청 폼] 관심 사항: …` / `[가격표 하단 간편폼] …` |
+| 유입경로 | `ref` | UTM · gclid · fbclid · referrer (첫 진입값을 세션에 보관) |
+| 페이지 | `page` | 전체 URL |
+| — | `lead_id` | 중복 제거용 키 (현재 시트에는 기록 안 됨) |
+
+`ref` 덕분에 **어느 광고에서 들어온 리드인지 시트에서 바로 구분**된다.
+광고 링크에 `?utm_source=youtube&utm_medium=cpv&utm_campaign=seongsu_0812` 형태로
+파라미터를 붙여 집행하면 된다.
+
+### 전송 방식과 이중화
+Apps Script 웹앱은 `OPTIONS` 프리플라이트를 처리하지 못한다.
+그래서 JSON 대신 **form-urlencoded 본문**으로 보내 프리플라이트가 아예 발생하지 않게 했다.
+그 위에 2단 폴백을 뒀다.
+
+1. `fetch` (기본) — 응답의 `ok` 값까지 읽어 실패를 감지
+2. 실패 시 **숨은 iframe form POST** — CORS가 적용되지 않아 확실히 도달
+
+### 검증 결과 (목 서버로 4개 경로 테스트)
+| 시나리오 | 결과 |
+|---|---|
+| CORS 정상 | fetch 1건 도달, 필드 정확, 성공화면 표시 |
+| CORS 차단 | fetch 실패 → iframe 폴백 도달, 성공화면 표시 |
+| 서버 `ok:false` | 재전송 안 함(중복 방지), 전화번호 안내 alert |
+| ENDPOINT 미설정 | 전송 없이 통과 + 콘솔 경고 |
+
+### ⚠️ 중복 행이 생기는 조건과 해결 (선택)
+fetch가 **서버에는 닿았는데 응답만 못 읽은** 경우, 폴백이 한 번 더 전송해 행이 2건 쌓인다.
+정상 배포 상태에서는 거의 발생하지 않지만, 완전히 없애려면 `doPost`에 아래를 추가한다.
+같은 제출은 두 번 모두 **동일한 `lead_id`** 를 보내므로 확실히 걸러진다.
+
+```javascript
+// HEADERS 끝에 'lead_id' 추가하고, appendRow 직전에 삽입
+const leadId = String(p.lead_id || '').trim();
+if (leadId) {
+  const col = HEADERS.indexOf('lead_id') + 1;
+  const last = sheet.getLastRow();
+  if (last > 1) {
+    const seen = sheet.getRange(2, col, last - 1, 1).getValues().flat();
+    if (seen.indexOf(leadId) !== -1) return json_({ ok: true, dup: true });
+  }
+}
+```
+
+### 남은 작업
+- `NOTIFY_EMAIL` 채우면 신규 문의마다 메일 알림 (하루 100통 제한 주의)
+- 성공화면·푸터의 `1600-0000`을 실제 대표번호로 교체
+- GTM/메타픽셀 ID 삽입 (`<head>` 주석 블록). 전환 이벤트는 `generate_lead`로 이미 push 중
+
+---
+
 ## 7. 배포 후 측정 지표
 
 | 지표 | 목표 | 측정 |

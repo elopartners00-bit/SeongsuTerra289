@@ -1240,16 +1240,116 @@ function setErr(id, on){
   if(el) el.classList.toggle('err', on);
 }
 
-function send(payload){
-  // ⚠️ 실제 수집 엔드포인트로 교체 필요 (API / Google Apps Script / DB수집 툴)
-  console.log('[LEAD]', payload);
-  if(window.dataLayer) window.dataLayer.push({event:'generate_lead', form:payload.source});
-  return new Promise(function(res){ setTimeout(res, 900); });
-  /*
-  return fetch('/api/lead', {
-    method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload)
+/* ═══════════════════════════════════════════════════════════════
+   리드 전송 — Google Apps Script 웹앱
+   ───────────────────────────────────────────────────────────────
+   Apps Script 편집기 → [배포] → [새 배포] → 유형: 웹 앱
+     · 실행 계정      : 나
+     · 액세스 권한    : 모든 사용자   ← 반드시 이 설정. '나만'이면 외부에서 전송 불가
+   배포 후 나오는 .../exec 주소를 아래 ENDPOINT에 붙여넣는다.
+   ※ 코드를 수정할 때마다 [배포 관리]에서 새 버전으로 재배포해야 반영된다.
+
+   시트 컬럼 매핑 (doPost의 e.parameter 키)
+     name    → 성함
+     phone   → 연락처
+     site    → 현장 · 지역   (아래 SITE_NAME 고정값)
+     message → 문의내용      (관심 사항 + 어느 폼에서 왔는지)
+     ref     → 유입경로      (UTM / gclid / fbclid / referrer)
+     page    → 페이지        (전체 URL)
+   ═══════════════════════════════════════════════════════════════ */
+var ENDPOINT  = 'https://script.google.com/macros/s/AKfycbxKKp33bSp-9tD-IDcYBFvGAC0C1GJiDST9AytjhZ6PNYQj4hGtCoMdxkOZxD28WHTg/exec';
+var SITE_NAME = '성수테라289';
+
+/* 유입경로 수집 — UTM은 첫 진입 URL에만 붙으므로 세션에 저장해 두고 전송한다.
+   (사용자가 페이지 내 앵커로 이동해도 광고 출처가 유실되지 않게) */
+var LEAD_REF = (function(){
+  var KEY = 'st289_ref';
+  try { var saved = sessionStorage.getItem(KEY); if(saved) return saved; } catch(e){}
+  var q = new URLSearchParams(location.search), parts = [];
+  ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','gclid','fbclid']
+    .forEach(function(k){ if(q.get(k)) parts.push(k + '=' + q.get(k)); });
+  if(document.referrer) parts.push('referrer=' + document.referrer);
+  var val = parts.join(' | ') || '직접유입';
+  try { sessionStorage.setItem(KEY, val); } catch(e){}
+  return val;
+})();
+
+/* CORS 우회용 폴백 — 숨은 iframe으로 일반 form POST를 보낸다.
+   브라우저 기본 폼 전송이라 CORS 자체가 적용되지 않아 확실히 도달한다. */
+function postViaIframe(url, params){
+  return new Promise(function(resolve){
+    var id  = 'lead_' + Date.now();
+    var ifr = document.createElement('iframe');
+    ifr.name = id;
+    ifr.style.cssText = 'position:absolute;left:-9999px;width:0;height:0;border:0';
+    document.body.appendChild(ifr);
+
+    var f = document.createElement('form');
+    f.action = url; f.method = 'POST'; f.target = id; f.style.display = 'none';
+    params.forEach(function(v, k){
+      var i = document.createElement('input');
+      i.type = 'hidden'; i.name = k; i.value = v;
+      f.appendChild(i);
+    });
+    document.body.appendChild(f);
+
+    var settled = false;
+    function done(){
+      if(settled) return;
+      settled = true;
+      setTimeout(function(){ f.remove(); ifr.remove(); }, 1000);
+      resolve(true);
+    }
+    ifr.addEventListener('load', done);
+    // Apps Script는 googleusercontent.com으로 리다이렉트돼 load 이벤트가 안 잡힐 수 있다.
+    setTimeout(done, 6000);
+    f.submit();
   });
-  */
+}
+
+function send(payload){
+  var params = new URLSearchParams();
+  params.set('name',    payload.name || '');
+  params.set('phone',   payload.phone || '');
+  params.set('site',    SITE_NAME);
+  params.set('message', payload.message || '');
+  params.set('ref',     LEAD_REF);
+  params.set('page',    location.href);
+  // 중복 방지 키. fetch가 서버에 닿았는데 응답만 못 읽으면 아래 iframe 폴백이 한 번 더
+  // 전송돼 행이 2건 쌓일 수 있다. 같은 제출은 같은 lead_id를 쓰므로,
+  // Apps Script에서 이 값으로 걸러내면 중복이 사라진다(선택 적용).
+  params.set('lead_id', 'L' + Date.now() + Math.random().toString(36).slice(2, 8));
+
+  if(window.dataLayer) window.dataLayer.push({ event:'generate_lead', form: payload.source });
+
+  // 엔드포인트 미설정 상태(로컬 확인용)에서는 전송하지 않고 통과시킨다.
+  if(!ENDPOINT || ENDPOINT.indexOf('여기에_웹앱_URL') !== -1){
+    console.warn('[LEAD] ENDPOINT가 아직 설정되지 않았습니다. 전송 없이 성공 처리합니다.',
+                 Object.fromEntries(params));
+    return new Promise(function(res){ setTimeout(res, 600); });
+  }
+
+  // URLSearchParams 본문은 Content-Type이 x-www-form-urlencoded로 잡혀
+  // '단순 요청'이 되므로 OPTIONS 프리플라이트가 발생하지 않는다.
+  // (Apps Script 웹앱은 OPTIONS를 처리하지 못해 프리플라이트가 뜨면 무조건 실패한다)
+  return fetch(ENDPOINT, { method:'POST', body: params, redirect:'follow' })
+    .then(function(r){ return r.text(); })
+    .then(function(t){
+      var d = null;
+      try { d = JSON.parse(t); } catch(e){}
+      if(d && d.ok === false){
+        var err = new Error(d.error || 'server');
+        err.server = true;              // 서버가 명시적으로 실패를 응답
+        throw err;
+      }
+      return true;                      // ok:true 또는 응답 파싱 불가 → 전송된 것으로 간주
+    })
+    .catch(function(err){
+      // 서버가 실패를 응답한 경우엔 재전송하지 않는다 (행 중복 방지)
+      if(err && err.server) throw err;
+      // 네트워크/CORS 실패 → iframe 경로로 재전송
+      return postViaIframe(ENDPOINT, params);
+    });
 }
 
 // 메인 폼
@@ -1275,12 +1375,12 @@ mainForm.addEventListener('submit', function(e){
   var btn = document.getElementById('submitBtn');
   btn.classList.add('loading'); btn.disabled = true;
 
+  var interest = document.getElementById('interest').value;
   send({
-    source:'main',
-    name: name.value.trim(),
-    phone: phone.value.trim(),
-    interest: document.getElementById('interest').value,
-    page: location.href
+    source: 'main',
+    name:   name.value.trim(),
+    phone:  phone.value.trim(),
+    message:'[상담 신청 폼] 관심 사항: ' + (interest || '미선택')
   }).then(function(){
     document.getElementById('doneName').textContent = name.value.trim();
     document.getElementById('mainCard').classList.add('done');
@@ -1303,7 +1403,12 @@ midForm.addEventListener('submit', function(e){
   var btn = midForm.querySelector('button');
   btn.classList.add('loading'); btn.disabled = true;
 
-  send({source:'mid', name:name.value.trim(), phone:phone.value.trim(), page:location.href})
+  send({
+    source: 'mid',
+    name:   name.value.trim(),
+    phone:  phone.value.trim(),
+    message:'[가격표 하단 간편폼] 층별 잔여 현황표 · 분양가표 요청'
+  })
     .then(function(){
       midForm.innerHTML = '<p style="grid-column:1/-1;color:#fff;font-weight:700;font-size:16px;' +
         'background:rgba(21,128,61,.24);border:1px solid rgba(74,222,128,.45);border-radius:12px;padding:16px">' +

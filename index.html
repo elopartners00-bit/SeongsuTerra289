@@ -30,10 +30,10 @@ function gtag_report_conversion(url) {
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>성수테라289 | 성수동 복층형 오피스텔 3억대 · 잔여호실 안내</title>
-<meta name="description" content="서울 성동구 성수동2가 289-290. 층고 4M 복층형 오피스텔 150실. 2호선 성수·뚝섬역 도보 5~7분. 가전 8종 무상, 주택 수 미포함. 분양가 3억 4천만원대부터.">
-<meta property="og:title" content="성수동 3억대 복층형 오피스텔 | 성수테라289">
-<meta property="og:description" content="크래프톤 신사옥 인접, 층고 4M 복층, 가전 8종 무상. 잔여 호실 확인하기">
+<title>성수테라289 | 성수동 복층형 오피스텔 3억 초</title>
+<meta name="description" content="서울 성동구 성수동2가 289-290. 층고 4M 복층형 오피스텔 150실. 2호선 성수·뚝섬역 도보 5~7분. 가전 8종 무상, 주택 수 미포함. 분양가 3억 초.">
+<meta property="og:title" content="성수동 3억 초 복층형 오피스텔 | 성수테라289">
+<meta property="og:description" content="크래프톤 신사옥 인접, 층고 4M 복층, 가전 8종 무상. 상세 자료 안내">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#0B1220">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
@@ -288,81 +288,13 @@ h3{font-size:clamp(18px,3vw,22px);line-height:1.35}
 }
 .opt svg{width:30px;height:30px;color:var(--gold);margin:0 auto 9px}
 
-/* ══ 가격 / 잔여 ══ */
-.floorbar{display:flex;gap:7px;overflow-x:auto;padding-bottom:10px;margin-bottom:20px;scrollbar-width:thin}
-.fbtn{
-  flex:none;min-width:70px;min-height:56px;border-radius:12px;
-  border:1.5px solid var(--border);background:var(--paper);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
-  font-weight:800;font-size:16px;color:var(--ink);transition:all .2s var(--ease);
-}
-.fbtn small{font-size:11px;font-weight:600;color:var(--muted-2)}
-.fbtn:hover{border-color:var(--gold)}
-.fbtn[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
-.fbtn[aria-pressed="true"] small{color:var(--gold-lite)}
-.fbtn.hot{border-color:var(--danger)}
-.fbtn.hot small{color:var(--danger)}
-.fbtn.hot[aria-pressed="true"]{background:var(--danger);border-color:var(--danger)}
-.fbtn.hot[aria-pressed="true"] small{color:#FFD9D0}
-
-.pricepanel{background:var(--paper);border:1px solid var(--border);border-radius:var(--r2);box-shadow:var(--shadow-sm);overflow:hidden}
-.pricehead{
-  display:flex;flex-wrap:wrap;gap:16px 28px;align-items:center;justify-content:space-between;
-  padding:22px 22px;background:linear-gradient(180deg,var(--gold-soft),#fff);
-  border-bottom:1px solid var(--border);
-}
-.pricehead .big{font-size:clamp(26px,5.4vw,38px);font-weight:800;letter-spacing:-.04em;line-height:1.1}
-.pricehead .lbl{font-size:13px;color:var(--muted);font-weight:600}
-.remain{display:flex;gap:8px;align-items:center;font-size:14px;font-weight:700}
-.dot{width:10px;height:10px;border-radius:3px;flex:none}
-.dot--ok{background:var(--ok)}.dot--no{background:#C8CDD6}
-.units{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;padding:22px}
-@media(min-width:620px){.units{grid-template-columns:repeat(8,1fr)}}
-@media(min-width:900px){.units{grid-template-columns:repeat(15,1fr)}}
-.unit{
-  aspect-ratio:1;border-radius:9px;display:grid;place-items:center;
-  font-size:13px;font-weight:700;border:1.5px solid;
-}
-.unit--ok{background:#F0FAF3;border-color:#BFE3CB;color:#166534}
-.unit--no{background:#F1F3F6;border-color:#DDE1E8;color:#A6ADBB;text-decoration:line-through}
-.pricefoot{padding:16px 22px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);background:var(--bg)}
+/* ══ 안내 배너 (섹션④ 공급 희소성) ══ */
 .scarcity{
   display:flex;gap:12px;align-items:flex-start;
   background:#FEF6F3;border:1px solid #F5C6B0;border-left:4px solid var(--cta);
   border-radius:var(--r1);padding:16px 18px;margin-top:20px;font-size:15px;line-height:1.6;
 }
 .scarcity svg{width:22px;height:22px;color:var(--cta);flex:none;margin-top:2px}
-
-/* ══ 시뮬레이터 ══ */
-.sim{display:grid;gap:20px}
-@media(min-width:900px){.sim{grid-template-columns:1fr 1fr;align-items:start}}
-.simbox{background:var(--ink-2);border:1px solid var(--border-dark);border-radius:var(--r2);padding:24px 22px}
-.field{margin-bottom:20px}
-.field:last-child{margin-bottom:0}
-.field label{display:flex;justify-content:space-between;align-items:baseline;font-size:14.5px;font-weight:700;color:#DDE4EF;margin-bottom:9px;gap:12px}
-.field label b{color:var(--gold-lite);font-size:16px;font-weight:800}
-input[type=range]{
-  width:100%;height:44px;-webkit-appearance:none;appearance:none;background:transparent;cursor:pointer;
-}
-input[type=range]::-webkit-slider-runnable-track{height:6px;border-radius:99px;background:#33415F}
-input[type=range]::-webkit-slider-thumb{
-  -webkit-appearance:none;width:26px;height:26px;border-radius:50%;background:var(--gold-lite);
-  border:3px solid var(--ink-2);margin-top:-10px;box-shadow:0 2px 8px rgba(0,0,0,.4);
-}
-input[type=range]::-moz-range-track{height:6px;border-radius:99px;background:#33415F}
-input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:var(--gold-lite);border:3px solid var(--ink-2)}
-.simres{background:var(--paper);border:1px solid var(--border);border-radius:var(--r2);padding:26px 22px;box-shadow:var(--shadow-md)}
-.resrow{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding:13px 0;border-bottom:1px dashed var(--border);font-size:15.5px}
-.resrow:last-of-type{border-bottom:none}
-.resrow span{color:var(--muted);font-weight:600}
-.resrow b{font-weight:800;letter-spacing:-.02em;font-size:17px}
-.resmain{
-  background:var(--ink);color:#fff;border-radius:var(--r2);padding:22px;margin-top:16px;
-  display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;
-}
-.resmain .k{font-size:14.5px;color:#AEB8CC;font-weight:600}
-.resmain .v{font-size:clamp(30px,6.4vw,44px);font-weight:800;color:var(--gold-lite);letter-spacing:-.04em;line-height:1}
-.disclaim{font-size:12.5px;color:var(--muted-2);line-height:1.6;margin-top:14px}
 
 /* ══ FAQ ══ */
 .faq{border-top:1px solid var(--border)}
@@ -431,23 +363,6 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 .btn.loading .btntext{opacity:.7}
 @keyframes spin{to{rotate:360deg}}
 
-/* 중간 인라인 폼 */
-.midcta{
-  background:var(--ink);color:#fff;border-radius:var(--r3);padding:30px 24px;margin-top:32px;
-  display:grid;gap:20px;
-}
-@media(min-width:820px){.midcta{grid-template-columns:1fr auto;align-items:center;padding:34px 38px}}
-.midcta h3{font-size:clamp(20px,3.4vw,26px);margin-bottom:8px}
-.midcta p{color:#AEB8CC;font-size:15px}
-.midform{display:grid;gap:10px;grid-template-columns:1fr}
-@media(min-width:560px){.midform{grid-template-columns:1fr 1.2fr auto}}
-.midform input{
-  min-height:54px;padding:0 16px;border-radius:12px;border:1.5px solid rgba(255,255,255,.2);
-  background:rgba(255,255,255,.07);color:#fff;font-size:16px;min-width:0;
-}
-.midform input::placeholder{color:#8A93A6}
-.midform input:focus{outline:none;border-color:var(--gold-lite);background:rgba(255,255,255,.12)}
-.midform .btn{min-height:54px;white-space:nowrap}
 
 /* ══ 오시는길 / 푸터 ══ */
 .footer{background:var(--ink);color:#8A93A6;padding:var(--s4) 0 34px;font-size:13px;line-height:1.75;border-top:1px solid var(--border-dark)}
@@ -526,7 +441,6 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
       <a href="#benefit">핵심 혜택</a>
       <a href="#location">입지</a>
       <a href="#product">상품</a>
-      <a href="#price">분양가·잔여</a>
       <a href="#faq">FAQ</a>
     </nav>
     <a href="#apply" class="topbar__cta">
@@ -540,8 +454,8 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 <section class="hero" id="top">
   <div class="wrap hero__in">
     <div>
-      <p class="hero__badge"><span class="pulse"></span> 2021년 12월 사용승인 완료 · 실물 확인 후 계약</p>
-      <h1>성수동 건물주가 되는<br>가장 현실적인 금액,<br><em>3억 4천만원대.</em></h1>
+      <p class="hero__badge"><span class="pulse"></span> 무신사 · 크래프톤 사옥 부지 인근 · 실물 확인 후 계약</p>
+      <h1>성수동 건물주가 되는<br>가장 현실적인 금액,<br><em>3억 초.</em></h1>
       <p class="hero__sub">
         크래프톤 신사옥 부지 인접. 2호선 성수·뚝섬역 도보 5~7분.<br>
         층고 4M <strong style="color:#fff">복층형 오피스텔 150실</strong> — 주택 수 미포함, 규제 무관.
@@ -551,8 +465,8 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
         <div>
           <span class="lbl">분양가 (전용 15.03㎡ / 4.55평)</span>
           <div style="display:flex;align-items:flex-end;gap:8px">
-            <span class="num tnum">3억 4,680<span style="font-size:.62em">만원</span></span>
-            <span class="punit">부터 · VAT 별도</span>
+            <span class="num tnum">3억 초</span>
+            <span class="punit">VAT 별도</span>
           </div>
         </div>
       </div>
@@ -560,12 +474,12 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
       <div class="hero__facts">
         <div><b class="tnum" data-count="4" data-dec="1" data-suffix="M">4.0M</b><span>층고 복층형</span></div>
         <div><b class="tnum" data-count="8" data-suffix="종">8종</b><span>가전 무상제공</span></div>
-        <div><b class="tnum" data-count="130" data-suffix="실">130실</b><span>현재 잔여 호실</span></div>
+        <div><b class="tnum" data-count="5" data-suffix="~7분">5~7분</b><span>2호선 성수·뚝섬역</span></div>
       </div>
 
       <div class="btn__row">
-        <a href="#apply" class="btn btn--cta">잔여 호실 · 분양가표 받기</a>
-        <a href="#price" class="btn btn--ghost">층별 가격 먼저 보기</a>
+        <a href="#apply" class="btn btn--cta">상세 분양 자료 받기</a>
+        <a href="#product" class="btn btn--ghost">상품 먼저 보기</a>
       </div>
       <p class="hero__note">※ 본 제작물에 사용된 이미지는 이해를 돕기 위한 것으로 실제와 다를 수 있습니다.</p>
     </div>
@@ -583,7 +497,7 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 <section class="trust">
   <div class="wrap">
     <div class="trust__grid">
-      <div><b class="ok">준공 완료</b><span>2021.12 사용승인</span></div>
+      <div><b class="ok">전 세대 복층</b><span>4M 층고 설계</span></div>
       <div><b class="tnum">150실</b><span>B1~11F 단일동</span></div>
       <div><b class="tnum">도보 5~7분</b><span>2호선 성수·뚝섬역</span></div>
       <div><b>㈜주성종합건설</b><span>시공</span></div>
@@ -608,13 +522,13 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
       <article class="card rv">
         <div class="card__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#i-coin"/></svg></div>
         <h3>3억대로 진입하는 성수동</h3>
-        <p>성수동 일반 상업·업무용 자산 대비 압도적으로 낮은 진입 금액. 대출·보증금을 활용하면 <strong>실투자금은 분양가의 일부</strong>로 시작합니다.</p>
+        <p>성수동 일반 상업·업무용 자산 대비 압도적으로 낮은 진입 금액. 대출·보증금을 활용하면 <strong>실투자금은 그보다 훨씬 적게</strong> 시작합니다.</p>
       </article>
 
       <article class="card rv">
         <div class="card__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#i-key"/></svg></div>
-        <h3>준공된 실물 · 선임대 후분양</h3>
-        <p>2021년 12월 사용승인이 끝난 <strong>완성된 건물</strong>입니다. 도면이 아닌 실물을 직접 보고 계약하며, 임대 세팅 후 분양되는 구조로 임대 공백 부담을 낮췄습니다.</p>
+        <h3>실물 확인 후 계약 · 선임대</h3>
+        <p>도면이나 모형이 아니라 <strong>실제 호실을 직접 보고</strong> 계약합니다. 임대 세팅 후 분양되는 구조로 임대 공백 부담을 낮췄습니다.</p>
       </article>
 
       <article class="card rv">
@@ -632,7 +546,7 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
       <article class="card rv">
         <div class="card__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#i-star"/></svg></div>
         <h3>계약자 특별 프로모션</h3>
-        <p>잔여 호실 소진 단계에 맞춰 <strong>계약자 대상 별도 혜택</strong>이 운영 중입니다. 적용 조건은 호실별로 상이하여 상담 시 개별 안내드립니다.</p>
+        <p><strong>계약자 대상 별도 혜택</strong>이 운영 중입니다. 적용 조건은 호실별로 상이하여 상담 시 개별 안내드립니다.</p>
       </article>
     </div>
 
@@ -844,174 +758,29 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
   </div>
 </section>
 
-<!-- ═══════════ ⑧ 가격 & 잔여 현황 ═══════════ -->
-<section class="sec sec--tint" id="price">
-  <div class="wrap">
-    <p class="eyebrow rv">PRICE &amp; AVAILABILITY</p>
-    <h2 class="rv">층별 분양가와<br>실시간 잔여 현황</h2>
-    <p class="lead rv" style="margin-bottom:26px">층을 선택하면 해당 층의 분양가와 호실별 계약 현황을 확인할 수 있습니다.</p>
-
-    <div class="floorbar rv" role="group" aria-label="층 선택" id="floorbar"></div>
-
-    <div class="pricepanel rv" id="pricepanel" aria-live="polite">
-      <div class="pricehead">
-        <div>
-          <div class="lbl">선택 층 분양가 <span style="font-weight:700;color:var(--ink)" id="phFloor">2층</span></div>
-          <div class="big tnum" id="phPrice">3억 4,880만원</div>
-          <div class="lbl" id="phPer">분양면적 7.17평 기준 · 평당 약 4,865만원 · VAT 별도</div>
-        </div>
-        <div style="display:grid;gap:8px">
-          <div class="remain"><span class="dot dot--ok"></span><span id="phOk">잔여 15실</span></div>
-          <div class="remain" style="color:var(--muted)"><span class="dot dot--no"></span><span id="phNo">계약완료 0실</span></div>
-        </div>
-      </div>
-      <div class="units" id="units"></div>
-      <div class="pricefoot">
-        ※ 분양가는 VAT 별도 금액입니다. 일반과세자 등록 시 건물분 부가세 환급이 가능하며, 상세 조건은 상담 시 안내드립니다.<br>
-        ※ 계약 현황은 자료 기준 시점의 정보로, 실시간 변동될 수 있습니다. 정확한 잔여 호실은 문의 바랍니다.
-      </div>
-    </div>
-
-    <div class="scarcity rv">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><use href="#i-alert"/></svg>
-      <div><strong>선호층부터 빠집니다.</strong> 조망·채광이 좋은 <strong>7~9층은 45실 중 18실이 이미 계약 완료</strong>되어 잔여 27실입니다. 저층부는 여유가 있지만, 원하는 층·향이 있다면 확인이 빠를수록 유리합니다.</div>
-    </div>
-
-    <!-- 중간 인라인 폼 (관심 정점 포착) -->
-    <div class="midcta rv">
-      <div>
-        <h3>원하는 층, 아직 남아 있는지 확인하세요</h3>
-        <p>연락처만 남기시면 <strong style="color:#fff">층별 잔여 현황표와 전체 분양가표</strong>를 바로 안내드립니다.</p>
-      </div>
-      <form class="midform" id="midForm" novalidate>
-        <input type="text" name="name" placeholder="이름" aria-label="이름" autocomplete="name" required>
-        <input type="tel" name="phone" placeholder="010-0000-0000" aria-label="연락처" autocomplete="tel" inputmode="numeric" maxlength="13" required>
-        <button type="submit" class="btn btn--cta"><span class="btntext">자료 받기</span><span class="spinner"></span></button>
-      </form>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════ ⑨ 실투자금 시뮬레이터 ═══════════ -->
-<section class="sec sec--dark" id="sim">
-  <div class="wrap">
-    <p class="eyebrow rv">SIMULATOR</p>
-    <h2 class="rv">그래서, 제 돈은<br>얼마가 들어가나요?</h2>
-    <p class="lead rv" style="margin-bottom:32px">대출과 임대보증금을 반영한 실투자금과 연 수익률을 직접 계산해보세요.</p>
-
-    <div class="sim">
-      <div class="simbox rv">
-        <div class="field">
-          <label for="sPrice">분양가 (VAT 별도) <b class="tnum" id="vPrice">3억 4,680만원</b></label>
-          <input type="range" id="sPrice" min="346800000" max="368800000" step="2000000" value="346800000">
-        </div>
-        <div class="field">
-          <label for="sLtv">대출 비율 <b class="tnum" id="vLtv">70%</b></label>
-          <input type="range" id="sLtv" min="0" max="80" step="5" value="70">
-        </div>
-        <div class="field">
-          <label for="sRate">대출 금리 (연) <b class="tnum" id="vRate">5.0%</b></label>
-          <input type="range" id="sRate" min="3" max="8" step="0.1" value="5">
-        </div>
-        <div class="field">
-          <label for="sDep">임대 보증금 <b class="tnum" id="vDep">1,000만원</b></label>
-          <input type="range" id="sDep" min="0" max="50000000" step="5000000" value="10000000">
-        </div>
-        <div class="field">
-          <label for="sRent">월 임대료 <b class="tnum" id="vRent">110만원</b></label>
-          <input type="range" id="sRent" min="600000" max="1800000" step="50000" value="1100000">
-        </div>
-      </div>
-
-      <div class="simres rv">
-        <div class="resrow"><span>분양가</span><b class="tnum" id="rPrice">346,800,000원</b></div>
-        <div class="resrow"><span>대출금 (−)</span><b class="tnum" id="rLoan">242,760,000원</b></div>
-        <div class="resrow"><span>임대 보증금 (−)</span><b class="tnum" id="rDep">10,000,000원</b></div>
-        <div class="resrow"><span>연 임대수입</span><b class="tnum" id="rIncome">13,200,000원</b></div>
-        <div class="resrow"><span>연 대출이자 (−)</span><b class="tnum" id="rInterest">12,138,000원</b></div>
-        <div class="resrow"><span>연 순수익</span><b class="tnum" id="rNet" style="color:var(--ok)">1,062,000원</b></div>
-
-        <div class="resmain">
-          <div>
-            <div class="k">실투자금</div>
-            <div class="v tnum" id="rEquity" style="font-size:clamp(22px,4.6vw,30px);color:#fff">9,404만원</div>
-          </div>
-          <div style="text-align:right">
-            <div class="k">연 수익률</div>
-            <div class="v tnum" id="rYield">1.13%</div>
-          </div>
-        </div>
-
-        <p class="disclaim">
-          ※ 위 수치는 입력값에 따른 <strong>단순 시뮬레이션</strong>이며 수익을 보장하지 않습니다.
-          보증금·임대료 기본값은 <strong>예시값</strong>으로, 실제 선임대 조건은 호실별로 상이합니다.
-          취득세·중개보수·관리비·공실 등 부대비용과 세금은 반영되지 않았습니다.
-          정확한 조건은 상담 시 안내드립니다.
-        </p>
-        <a href="#apply" class="btn btn--cta btn--block" style="margin-top:18px">내 조건에 맞는 호실 상담받기</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════ ⑩ FAQ ═══════════ -->
-<section class="sec" id="faq">
-  <div class="wrap" style="max-width:820px">
-    <p class="eyebrow rv">FAQ</p>
-    <h2 class="rv" style="margin-bottom:26px">가장 많이 묻는 질문</h2>
-
-    <div class="faq rv">
-      <details open>
-        <summary>오피스텔을 사면 주택 수에 포함되나요?</summary>
-        <div class="ans">업무용으로 취득·사용하는 오피스텔은 주택 수에 산입되지 않습니다. 기존 보유 주택의 양도세·종부세 지위에 영향을 주지 않으며, 청약통장이나 거주요건 같은 주택 규제와도 무관합니다. 다만 <strong>주거용으로 실제 사용할 경우 판단이 달라질 수 있으므로</strong>, 취득 목적과 임대 형태에 따른 세무 검토는 계약 전 반드시 세무 전문가와 확인하시기 바랍니다.</div>
-      </details>
-      <details>
-        <summary>아직 짓는 중인가요? 공사가 지연되면 어떻게 되나요?</summary>
-        <div class="ans"><strong>이미 준공된 건물입니다.</strong> 2021년 12월 사용승인이 완료되었습니다. 도면이나 모형이 아니라 실제 호실을 직접 보고 계약하시게 되며, 공사 지연·시행사 부도로 인한 미완공 리스크가 원천적으로 없습니다. 이 점이 신축 분양과 가장 크게 다른 부분입니다.</div>
-      </details>
-      <details>
-        <summary>소형 오피스텔이면 공실이 걱정됩니다.</summary>
-        <div class="ans">이 지역의 임차 수요는 세 축에서 나옵니다. ① 한양대·건국대·세종대가 지하철 1~2정거장 거리, ② 성수동 일대 지식산업센터 밀집과 IT·게임·패션·엔터 기업의 본사 이전, ③ 크래프톤 신사옥 등 대규모 업무시설 준공 예정. 또한 본 물건은 <strong>임대 세팅 후 분양되는 구조</strong>로 임대 공백 부담을 낮췄습니다. 호실별 임대 현황은 상담 시 개별 확인 가능합니다.</div>
-      </details>
-      <details>
-        <summary>실제로 들어가는 돈은 얼마인가요?</summary>
-        <div class="ans">분양가는 3억 4,680만원부터(VAT 별도)이며, 실투자금은 <strong>분양가 − 대출금 − 임대보증금</strong>으로 결정됩니다. 대출 가능 비율과 금리는 개인 신용·소득에 따라 달라지므로 일률적으로 안내드리기 어렵습니다. 위 <a href="#sim" style="color:var(--gold);font-weight:700;text-decoration:underline">시뮬레이터</a>에서 조건을 바꿔가며 대략적인 범위를 확인하신 뒤, 상담 시 실제 조건으로 정밀 계산을 받아보시길 권합니다. 취득세 등 부대비용은 별도입니다.</div>
-      </details>
-      <details>
-        <summary>VAT 별도라고 되어 있는데, 부가세는 돌려받나요?</summary>
-        <div class="ans">오피스텔 분양가 중 <strong>건물분에 대한 부가가치세</strong>는 일반과세자로 사업자등록 후 임대사업을 영위하는 경우 환급 신청이 가능합니다. 다만 환급 요건, 임대 유형(업무용/주거용), 이후 사업자 유지 의무 등 조건이 있으므로 반드시 세무 전문가와 상담 후 진행하셔야 합니다. 상담 시 일반적인 절차를 안내드립니다.</div>
-      </details>
-      <details>
-        <summary>상담 신청하면 바로 계약해야 하나요?</summary>
-        <div class="ans">아닙니다. 관심고객 등록은 <strong>잔여 호실 현황과 분양가표, 프로모션 조건을 확인하기 위한 절차</strong>입니다. 자료를 받아보신 뒤 현장 방문 여부를 결정하시면 되고, 방문 후에도 계약 의무는 전혀 없습니다. 원하지 않으실 경우 연락 중단을 요청하시면 즉시 반영됩니다.</div>
-      </details>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════ ⑪ 상담 신청 폼 ═══════════ -->
+<!-- ═══════════ ⑧ 상담 신청 폼 (CONTACT) ═══════════ -->
 <section class="sec formsec" id="apply">
   <div class="wrap formgrid">
     <div>
       <p class="eyebrow">CONTACT</p>
-      <h2>잔여 호실, 지금<br>확인해 보세요.</h2>
+      <h2>성수동 복층형 오피스텔,<br>지금 상담받으세요.</h2>
       <p class="lead" style="margin-bottom:26px">
-        연락처를 남겨주시면 담당자가 <strong style="color:#fff">층별 잔여 현황표 · 전체 분양가표 ·
+        연락처를 남겨주시면 담당자가 <strong style="color:#fff">분양 조건 · 상품 자료 ·
         계약자 프로모션 조건</strong>을 정리해 안내드립니다.
       </p>
       <ul class="ilist" style="gap:10px">
         <li style="background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.13);color:#DDE4EF">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold-lite)"><use href="#i-check"/></svg>
-          <div>층별 <strong>잔여 호실 현황표</strong> 제공</div></li>
+          <div>호실별 <strong>분양 조건</strong> 안내</div></li>
         <li style="background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.13);color:#DDE4EF">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold-lite)"><use href="#i-check"/></svg>
-          <div>2~11층 <strong>전체 분양가표</strong> 및 선임대 조건 안내</div></li>
+          <div><strong>선임대 조건</strong> 및 임대 운영 방식 안내</div></li>
         <li style="background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.13);color:#DDE4EF">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold-lite)"><use href="#i-check"/></svg>
           <div>호실별 <strong>계약자 특별 프로모션</strong> 적용 조건</div></li>
         <li style="background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.13);color:#DDE4EF">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold-lite)"><use href="#i-check"/></svg>
-          <div><strong>현장 실물 방문</strong> 예약 (준공 완료 호실 직접 확인)</div></li>
+          <div><strong>현장 실물 방문</strong> 예약 (실제 호실 직접 확인)</div></li>
       </ul>
     </div>
 
@@ -1037,10 +806,9 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
             <label for="interest">관심 사항 <span style="color:var(--muted-2);font-weight:600">(선택)</span></label>
             <select id="interest" name="interest">
               <option value="">선택 안 함</option>
-              <option>저층부 (2~5층) — 최저가 호실</option>
-              <option>중층부 (6~8층)</option>
-              <option>고층부 (9~11층) — 조망 우선</option>
-              <option>층 무관 — 수익률 좋은 호실 추천</option>
+              <option>투자 목적 — 임대 수익</option>
+              <option>실거주 목적</option>
+              <option>분양 조건 · 프로모션 안내 희망</option>
               <option>현장 방문 예약 희망</option>
             </select>
           </div>
@@ -1051,7 +819,7 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
           </label>
 
           <button type="submit" class="btn btn--cta btn--block" id="submitBtn">
-            <span class="btntext">잔여 호실 · 분양가표 받기</span><span class="spinner"></span>
+            <span class="btntext">상세 분양 자료 받기</span><span class="spinner"></span>
           </button>
 
           <div class="formnote">
@@ -1075,7 +843,42 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
   </div>
 </section>
 
-<!-- ═══════════ ⑫ 푸터 ═══════════ -->
+<!-- ═══════════ ⑨ FAQ ═══════════ -->
+<section class="sec" id="faq">
+  <div class="wrap" style="max-width:820px">
+    <p class="eyebrow rv">FAQ</p>
+    <h2 class="rv" style="margin-bottom:26px">가장 많이 묻는 질문</h2>
+
+    <div class="faq rv">
+      <details open>
+        <summary>오피스텔을 사면 주택 수에 포함되나요?</summary>
+        <div class="ans">업무용으로 취득·사용하는 오피스텔은 주택 수에 산입되지 않습니다. 기존 보유 주택의 양도세·종부세 지위에 영향을 주지 않으며, 청약통장이나 거주요건 같은 주택 규제와도 무관합니다. 다만 <strong>주거용으로 실제 사용할 경우 판단이 달라질 수 있으므로</strong>, 취득 목적과 임대 형태에 따른 세무 검토는 계약 전 반드시 세무 전문가와 확인하시기 바랍니다.</div>
+      </details>
+      <details>
+        <summary>도면만 보고 계약하는 건가요?</summary>
+        <div class="ans">아닙니다. <strong>이미 완공된 실물</strong>입니다. 도면이나 모형이 아니라 실제 호실에 들어가 마감·층고·복층 구조를 직접 확인하신 뒤 계약하시게 됩니다. 공사 지연이나 미완공으로 인한 리스크가 원천적으로 없다는 점이 신축 분양과 가장 크게 다른 부분입니다.</div>
+      </details>
+      <details>
+        <summary>소형 오피스텔이면 공실이 걱정됩니다.</summary>
+        <div class="ans">이 지역의 임차 수요는 세 축에서 나옵니다. ① 한양대·건국대·세종대가 지하철 1~2정거장 거리, ② 성수동 일대 지식산업센터 밀집과 IT·게임·패션·엔터 기업의 본사 이전, ③ 크래프톤 신사옥 등 대규모 업무시설 준공 예정. 또한 본 물건은 <strong>임대 세팅 후 분양되는 구조</strong>로 임대 공백 부담을 낮췄습니다. 호실별 임대 현황은 상담 시 개별 확인 가능합니다.</div>
+      </details>
+      <details>
+        <summary>투자용 말고 실거주도 가능한가요?</summary>
+        <div class="ans">가능합니다. 층고 4M 복층 구조에 다락 복도 공간까지 확보돼 있고, 가전 8종이 기본 제공되므로 <strong>바로 입주해 생활할 수 있는 상태</strong>입니다. 2호선 성수·뚝섬역이 도보권이라 출퇴근 여건도 좋습니다.<br><br>다만 한 가지 유의하실 점이 있습니다. <strong>주거용으로 실제 사용하면 주택 수 산입 여부 판단이 달라질 수 있습니다.</strong> 업무용으로 취득·사용할 때와 세제 취급이 다르므로, 실거주를 계획하신다면 계약 전 세무 전문가와 반드시 확인하시기 바랍니다. 상담 시 두 경우의 차이를 안내드립니다.</div>
+      </details>
+      <details>
+        <summary>VAT 별도라고 되어 있는데, 부가세는 돌려받나요?</summary>
+        <div class="ans">오피스텔 분양가 중 <strong>건물분에 대한 부가가치세</strong>는 일반과세자로 사업자등록 후 임대사업을 영위하는 경우 환급 신청이 가능합니다. 다만 환급 요건, 임대 유형(업무용/주거용), 이후 사업자 유지 의무 등 조건이 있으므로 반드시 세무 전문가와 상담 후 진행하셔야 합니다. 상담 시 일반적인 절차를 안내드립니다.</div>
+      </details>
+      <details>
+        <summary>상담 신청하면 바로 계약해야 하나요?</summary>
+        <div class="ans">아닙니다. 관심고객 등록은 <strong>분양 조건과 프로모션 내용을 확인하기 위한 절차</strong>입니다. 자료를 받아보신 뒤 현장 방문 여부를 결정하시면 되고, 방문 후에도 계약 의무는 전혀 없습니다. 원하지 않으실 경우 연락 중단을 요청하시면 즉시 반영됩니다.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ ⑩ 푸터 ═══════════ -->
 <footer class="footer" id="privacy">
   <div class="wrap">
     <div style="display:grid;gap:20px;grid-template-columns:1fr">
@@ -1083,7 +886,7 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
         <p style="font-size:19px;font-weight:800;color:#fff;letter-spacing:-.03em;margin-bottom:10px">성수테라289</p>
         <p><strong>주소</strong> 서울특별시 성동구 아차산로5길 26 (성수동2가 289-290)<br>
         <strong>규모</strong> B1~11F 1개동 · 오피스텔 150실 · 연면적 4,093.13㎡(1,238.17평)<br>
-        <strong>시공</strong> ㈜주성종합건설 · <strong>사용승인</strong> 2021년 12월<br>
+        <strong>시공</strong> ㈜주성종합건설<br>
         <strong>분양문의</strong> <a href="tel:16000000" style="color:var(--gold-lite);font-weight:700">1600-0000</a></p>
       </div>
 
@@ -1092,8 +895,7 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
         <ul>
           <li>본 제작물에 사용된 이미지·투시도·평면도는 소비자의 이해를 돕기 위한 것으로 실제와 다를 수 있습니다.</li>
           <li>분양가는 VAT 별도 금액이며, 취득세 등 부대비용은 별도입니다.</li>
-          <li>잔여 호실 및 계약 현황은 자료 기준 시점의 정보로 실시간 변동될 수 있습니다.</li>
-          <li>본 페이지의 수익 시뮬레이션은 입력 조건에 따른 참고용 계산이며, 임대수익이나 시세 상승을 보장하지 않습니다.</li>
+          <li>분양가는 호실·층별로 상이하며, 정확한 금액은 상담 시 안내드립니다.</li>
           <li>세제·대출 관련 내용은 개인의 상황 및 관계 법령 개정에 따라 달라질 수 있으므로 반드시 전문가와 상담하시기 바랍니다.</li>
           <li>개인정보 수집·이용 목적: 분양 상담 및 정보 제공 / 수집항목: 이름·연락처 / 보유기간: 상담 종료 후 6개월 / 동의 거부 시 상담 진행이 제한될 수 있습니다.</li>
           <li>분양대행 : (상호·등록번호 기재 예정)</li>
@@ -1110,85 +912,12 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-phone"/></svg>
     전화상담
   </a>
-  <a href="#apply" class="btn btn--cta" data-track="sticky">잔여 호실 확인하기</a>
+  <a href="#apply" class="btn btn--cta" data-track="sticky">상담 신청하기</a>
 </div>
 
 <script>
 (function(){
 'use strict';
-
-/* ─────────── 층별 데이터 (교육자료 p.9~18 실집계) ─────────── */
-var FLOORS = [
-  {f:2,  price:348800000, sold:[]},
-  {f:3,  price:346800000, sold:[]},
-  {f:4,  price:348800000, sold:[]},
-  {f:5,  price:346800000, sold:[]},
-  {f:6,  price:352800000, sold:[14]},
-  {f:7,  price:352800000, sold:[6,7,8,9,10,13]},
-  {f:8,  price:359800000, sold:[6,8,9,10,15]},
-  {f:9,  price:352800000, sold:[8,9,10,11,12,13,14], alt:{7:359800000,15:359800000}},
-  {f:10, price:359800000, sold:[7]},
-  {f:11, price:358800000, sold:[], alt:{7:368800000,8:368800000,9:368800000,10:368800000,11:368800000,12:368800000,13:368800000,14:368800000,15:368800000}}
-];
-var UNITS_PER_FLOOR = 15, AREA_PY = 7.17;
-
-/* ─────────── 유틸 ─────────── */
-function won(n){ return n.toLocaleString('ko-KR') + '원'; }
-function eok(n){
-  var e = Math.floor(n/100000000), m = Math.round((n%100000000)/10000);
-  if(e && m) return e + '억 ' + m.toLocaleString('ko-KR') + '만원';
-  if(e) return e + '억원';
-  return m.toLocaleString('ko-KR') + '만원';
-}
-function man(n){ return Math.round(n/10000).toLocaleString('ko-KR') + '만원'; }
-
-/* ─────────── 가격/잔여 인터랙션 ─────────── */
-var bar = document.getElementById('floorbar');
-var unitsEl = document.getElementById('units');
-
-FLOORS.forEach(function(d, i){
-  var avail = UNITS_PER_FLOOR - d.sold.length;
-  var b = document.createElement('button');
-  b.className = 'fbtn' + (avail <= 10 ? ' hot' : '');
-  // 단일 패널을 갱신하는 토글 버튼 그룹 (tab 패턴 아님)
-  b.type = 'button';
-  b.setAttribute('aria-pressed', i === 0 ? 'true' : 'false');
-  b.setAttribute('aria-controls', 'pricepanel');
-  b.setAttribute('aria-label', d.f + '층 · ' + (avail ? '잔여 ' + avail + '실' : '마감'));
-  b.innerHTML = d.f + 'F<small>' + (avail ? '잔여 ' + avail : '마감') + '</small>';
-  b.addEventListener('click', function(){ selectFloor(i); });
-  bar.appendChild(b);
-});
-
-function selectFloor(idx){
-  var d = FLOORS[idx];
-  Array.prototype.forEach.call(bar.children, function(el, i){
-    el.setAttribute('aria-pressed', i === idx ? 'true' : 'false');
-  });
-
-  var prices = [], html = '';
-  for(var n = 1; n <= UNITS_PER_FLOOR; n++){
-    var isSold = d.sold.indexOf(n) !== -1;
-    var p = (d.alt && d.alt[n]) ? d.alt[n] : d.price;
-    if(!isSold) prices.push(p);
-    var no = d.f + (n < 10 ? '0' + n : '' + n);
-    html += '<div class="unit unit--' + (isSold ? 'no' : 'ok') + '" title="' +
-            no + '호 · ' + (isSold ? '계약완료' : eok(p)) + '">' + no + '</div>';
-  }
-  unitsEl.innerHTML = html;
-
-  var lo = prices.length ? Math.min.apply(null, prices) : d.price;
-  var hi = prices.length ? Math.max.apply(null, prices) : d.price;
-  var avail = UNITS_PER_FLOOR - d.sold.length;
-
-  document.getElementById('phFloor').textContent = d.f + '층';
-  document.getElementById('phPrice').textContent = (lo === hi) ? eok(lo) : eok(lo) + ' ~ ' + eok(hi);
-  document.getElementById('phPer').textContent =
-    '분양면적 7.17평 기준 · 평당 약 ' + Math.round(lo / AREA_PY / 10000).toLocaleString('ko-KR') + '만원 · VAT 별도';
-  document.getElementById('phOk').textContent = '잔여 ' + avail + '실';
-  document.getElementById('phNo').textContent = '계약완료 ' + d.sold.length + '실';
-}
-selectFloor(0);
 
 /* ─────────── 입지 탭 ─────────── */
 var tabs = document.querySelectorAll('.tab');
@@ -1202,52 +931,6 @@ Array.prototype.forEach.call(tabs, function(t){
     document.getElementById(t.getAttribute('aria-controls')).hidden = false;
   });
 });
-
-/* ─────────── 실투자금 시뮬레이터 ─────────── */
-var S = {
-  price: document.getElementById('sPrice'),
-  ltv:   document.getElementById('sLtv'),
-  rate:  document.getElementById('sRate'),
-  dep:   document.getElementById('sDep'),
-  rent:  document.getElementById('sRent')
-};
-function calc(){
-  var price = +S.price.value, ltv = +S.ltv.value, rate = +S.rate.value;
-  var dep = +S.dep.value, rent = +S.rent.value;
-
-  var loan     = Math.round(price * ltv / 100);
-  var equity   = price - loan - dep;
-  var income   = rent * 12;
-  var interest = Math.round(loan * rate / 100);
-  var net      = income - interest;
-  var yieldPct = equity > 0 ? (net / equity * 100) : 0;
-
-  document.getElementById('vPrice').textContent = eok(price);
-  document.getElementById('vLtv').textContent   = ltv + '%';
-  document.getElementById('vRate').textContent  = rate.toFixed(1) + '%';
-  document.getElementById('vDep').textContent   = man(dep);
-  document.getElementById('vRent').textContent  = man(rent);
-
-  document.getElementById('rPrice').textContent    = won(price);
-  document.getElementById('rLoan').textContent     = won(loan);
-  document.getElementById('rDep').textContent      = won(dep);
-  document.getElementById('rIncome').textContent   = won(income);
-  document.getElementById('rInterest').textContent = won(interest);
-
-  var netEl = document.getElementById('rNet');
-  netEl.textContent = won(net);
-  netEl.style.color = net >= 0 ? 'var(--ok)' : 'var(--danger)';
-
-  // 1억 이상은 '억' 단위로 읽어야 직관적 (예: 33,680만원 → 3억 3,680만원)
-  document.getElementById('rEquity').textContent =
-    equity > 0 ? (equity >= 100000000 ? eok(equity) : man(equity)) : '보증금·대출이 분양가를 초과';
-
-  var yEl = document.getElementById('rYield');
-  yEl.textContent = equity > 0 ? yieldPct.toFixed(2) + '%' : '—';
-  yEl.style.color = net >= 0 ? 'var(--gold-lite)' : '#FCA5A5';
-}
-Object.keys(S).forEach(function(k){ S[k].addEventListener('input', calc); });
-calc();
 
 /* ─────────── 전화번호 자동 포맷 ─────────── */
 function formatPhone(v){
@@ -1419,36 +1102,6 @@ mainForm.addEventListener('submit', function(e){
   }).then(function(){
     btn.classList.remove('loading'); btn.disabled = false;
   });
-});
-
-// 중간 인라인 폼
-var midForm = document.getElementById('midForm');
-midForm.addEventListener('submit', function(e){
-  e.preventDefault();
-  var name = midForm.name, phone = midForm.phone;
-  if(!name.value.trim()){ name.focus(); name.style.borderColor = 'var(--danger)'; return; }
-  if(!PHONE_RE.test(phone.value.trim())){ phone.focus(); phone.style.borderColor = 'var(--danger)'; return; }
-
-  var btn = midForm.querySelector('button');
-  btn.classList.add('loading'); btn.disabled = true;
-
-  send({
-    source: 'mid',
-    name:   name.value.trim(),
-    phone:  phone.value.trim(),
-    message:'[가격표 하단 간편폼] 층별 잔여 현황표 · 분양가표 요청'
-  })
-    .then(function(){
-      // DB 전송 성공 후 Google Ads 상담신청 전환 기록
-      gtag_report_conversion();
-      midForm.innerHTML = '<p style="grid-column:1/-1;color:#fff;font-weight:700;font-size:16px;' +
-        'background:rgba(21,128,61,.24);border:1px solid rgba(74,222,128,.45);border-radius:12px;padding:16px">' +
-        '접수 완료 — 영업시간 내 10분 안에 연락드리겠습니다.</p>';
-    })
-    .catch(function(){
-      alert('일시적인 오류가 발생했습니다. 1600-0000으로 연락 주세요.');
-      btn.classList.remove('loading'); btn.disabled = false;
-    });
 });
 
 /* ─────────── 스크롤 리빌 ─────────── */

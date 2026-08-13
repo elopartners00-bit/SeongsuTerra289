@@ -12,6 +12,22 @@
   gtag('config', 'AW-18336501245');
 </script>
 
+<!-- Event snippet for 성수테라289 상담신청 conversion -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-18336501245/OB5xCKrF4uAcEP2bw6dE',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>성수테라289 | 성수동 복층형 오피스텔 3억대 · 잔여호실 안내</title>
@@ -1393,6 +1409,8 @@ mainForm.addEventListener('submit', function(e){
     phone:  phone.value.trim(),
     message:'[상담 신청 폼] 관심 사항: ' + (interest || '미선택')
   }).then(function(){
+    // DB 전송 성공 후 Google Ads 상담신청 전환 기록
+    gtag_report_conversion();
     document.getElementById('doneName').textContent = name.value.trim();
     document.getElementById('mainCard').classList.add('done');
     document.getElementById('mainCard').scrollIntoView({block:'center', behavior:'smooth'});
@@ -1421,6 +1439,8 @@ midForm.addEventListener('submit', function(e){
     message:'[가격표 하단 간편폼] 층별 잔여 현황표 · 분양가표 요청'
   })
     .then(function(){
+      // DB 전송 성공 후 Google Ads 상담신청 전환 기록
+      gtag_report_conversion();
       midForm.innerHTML = '<p style="grid-column:1/-1;color:#fff;font-weight:700;font-size:16px;' +
         'background:rgba(21,128,61,.24);border:1px solid rgba(74,222,128,.45);border-radius:12px;padding:16px">' +
         '접수 완료 — 영업시간 내 10분 안에 연락드리겠습니다.</p>';
